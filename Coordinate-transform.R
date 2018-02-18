@@ -1,5 +1,3 @@
-
-#
 ```{r setup}
 knitr::opts_knit$set(root.dir = normalizePath("C:/Users/...")) 
 ```
