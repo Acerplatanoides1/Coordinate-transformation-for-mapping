@@ -4,7 +4,6 @@
 knitr::opts_knit$set(root.dir = normalizePath("C:/Users/...")) 
 ```
 
-
 1. Separate coorinates from string
 ```{r}
 
@@ -40,11 +39,9 @@ split_coord_XY <- function(Coord, path) {
 coord = split_coord_XY(dane$Coord, path)
 coord
 
-
 ```
 
 2.Change to Degree Minute Second na Decimals
-
 
 ```{r}
 
@@ -73,6 +70,6 @@ CoordToShapefile <- function(Longitude, Latitude, filename) {
 }
 g = "C:/Users/...your path.shp"
 shapefile = CoordToShapefile(coord_lon,coord_lat,g)
-plot(shapefile,main = "Points where soils samples has been taken") 
+plot(shapefile,main = "Mapped points") 
 
 ```
