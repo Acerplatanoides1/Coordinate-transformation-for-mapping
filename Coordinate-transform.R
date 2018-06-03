@@ -1,17 +1,13 @@
-#R NoteBook path to data
-```{r setup}
-knitr::opts_knit$set(root.dir = normalizePath("C:/Users/...")) 
-```
+#String coordinate transformation and visualization in R
 
-1. Separate coorinates from string
-```{r}
+#1. Separate coorinates from string
 
 library(sf)
 library(dplyr)
 library(raster)
 filename = "coordinatexy.txt"
-nazwy = c("Profile", "Coord")
-dane = read.table(filename,sep = "\t", stringsAsFactors = FALSE, col.names = nazwy,header = TRUE)
+names = c("Profile", "Coord")
+data = read.table(filename,sep = "\t", stringsAsFactors = FALSE, col.names = nazwy,header = TRUE)
 path = "C:/Users/...your path"
 str(data)
 
@@ -38,11 +34,7 @@ split_coord_XY <- function(Coord, path) {
 coord = split_coord_XY(dane$Coord, path)
 coord
 
-```
-
-2.Change to Degree Minute Second na Decimals
-
-```{r}
+#2.Change to Degree Minute Second na Decimals
 
 dg2dec <- function(varb, Dg=NA, Min=NA, Sec=NA, SW.Hemisphere="S|W") {
   DMS <- sapply(strsplit(varb, paste0('[', Dg, Min, Sec, ']')), as.numeric)
@@ -54,10 +46,9 @@ dg2dec <- function(varb, Dg=NA, Min=NA, Sec=NA, SW.Hemisphere="S|W") {
 coord_lon = data.frame(Lon = dg2dec(varb=coord$Lon, Dg="°", Min="'", Sec = "''N|E"))
 coord_lat = data.frame(Lat = dg2dec(varb=coord$Lat, Dg="°", Min="'", Sec = "''N|E"))
 coord_lon
-```
 
-3. Change coorinates to ESRI Shapefile
-```{r}
+#3. Change coorinates to ESRI Shapefile
+
 CoordToShapefile <- function(Longitude, Latitude, filename) {
   library(sf)
   toShapefile = matrix(Longitude, Latitude)
@@ -71,4 +62,4 @@ g = "C:/Users/...your path.shp"
 shapefile = CoordToShapefile(coord_lon,coord_lat,g)
 plot(shapefile,main = "Mapped points") 
 
-```
+# Done!
