@@ -1,6 +1,6 @@
 #String coordinate transformation and visualization in R
 
-#1. Separate coorinates from string
+#Step 1 - Separate coorinates from string
 
 library(sf)
 library(dplyr)
@@ -34,7 +34,7 @@ split_coord_XY <- function(Coord, path) {
 coord = split_coord_XY(dane$Coord, path)
 coord
 
-#2.Change to Degree Minute Second na Decimals
+#Step 2 - Change to Degree Minute Second na Decimals
 
 dg2dec <- function(varb, Dg=NA, Min=NA, Sec=NA, SW.Hemisphere="S|W") {
   DMS <- sapply(strsplit(varb, paste0('[', Dg, Min, Sec, ']')), as.numeric)
@@ -47,7 +47,7 @@ coord_lon = data.frame(Lon = dg2dec(varb=coord$Lon, Dg="°", Min="'", Sec = "''N
 coord_lat = data.frame(Lat = dg2dec(varb=coord$Lat, Dg="°", Min="'", Sec = "''N|E"))
 coord_lon
 
-#3. Change coorinates to ESRI Shapefile
+#Step 3 - Change coorinates to ESRI Shapefile
 
 CoordToShapefile <- function(Longitude, Latitude, filename) {
   library(sf)
