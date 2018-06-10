@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository is an example how couple of strings could be transformed into spatial data to be visualized on the map in three steps. In example we will use some XY coordinates of soil science survey holes dug in Poland (eg. Profile: Bolków Ap, Coordinates: E: 16° 09' 9.8'';N: 50° 58' 0.4''). 
+This repository is an example how couple of strings could be transformed into spatial data in three steps. In example we will use some XY coordinates of soil science survey holes dug in Poland (eg. Profile: Bolków Ap, Coordinates: E: 16° 09' 9.8'';N: 50° 58' 0.4''). 
 .   
 
 ## Step 1 - Working with strings in R
