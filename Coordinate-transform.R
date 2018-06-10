@@ -50,7 +50,6 @@ coord_lon
 #Step 3 - Creation of spatial objects
 
 CoordToShapefile <- function(Longitude, Latitude, filename) {
-  library(sf)
   toShapefile = data.frame(Longitude, Latitude)
   coordinates(toShapefile) = ~Lon+Lat
   proj4string(toShapefile) = CRS("+proj=tmerc +lat_0=0 +lon_0=19 +k=0.9993 +x_0=500000 +y_0=-5300000 +ellps=GRS80 +units=m +no_defs") ## Polish Coordinate Reference System: CS92; EPSG:2180
@@ -60,6 +59,6 @@ CoordToShapefile <- function(Longitude, Latitude, filename) {
 }
 g = "C:/Users/...your path.shp"
 shapefile = CoordToShapefile(coord_lon,coord_lat,g)
-plot(shapefile,main = "Mapped points") 
+plot(shapefile, main = "Mapped points") 
 
 # Done!
