@@ -15,4 +15,4 @@ Still our strings represent the DMS format and  have the spatial data format in 
 
 ## Step 3 - Creation of spatial objects
 
-For this task we will use Longitude and Latitude of points in decimal degree format constructed in "Step 2" and the Coordinate Reference System (CRS). The points used in my example were sampled in from Polish croplands, though we have to pick the Polish coordinate system to project them on the map (CS92 with EPSG:2180 http://spatialreference.org/ref/epsg/etrs89-poland-cs92/). The function 'CoordToShapefile' in R file provided in repository shows how to construct shapefile step by step with use of 'raster' pakage.   
+For this task we will use Longitude and Latitude of points in decimal degree format constructed in "Step 2" and the Coordinate Reference System (CRS). The points used in my example were sampled in from Polish croplands, though we have to pick the Polish coordinate system to project them on the map (CS92 with EPSG:2180 http://spatialreference.org/ref/epsg/etrs89-poland-cs92/). The function 'CoordToShapefile' in R file provided in repository shows how to construct shapefile step by step with use of 'sp' and 'raster' pakage.   
