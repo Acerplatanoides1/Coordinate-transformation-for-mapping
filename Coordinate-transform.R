@@ -2,9 +2,10 @@
 
 #Step 1 - Separate coorinates from string
 
-library(sf)
-library(dplyr)
+library(stringr)
 library(raster)
+library(sp)
+
 filename = "coordinatexy.txt"
 names = c("Profile", "Coord")
 data = read.table(filename,sep = "\t", stringsAsFactors = FALSE, col.names = nazwy,header = TRUE)
@@ -12,7 +13,6 @@ path = "C:/Users/...your path"
 str(data)
 
 split_coord_XY <- function(Coord, path) {
-  library(stringr)
   path = path
   for (i in Coord) {
     spli_x = str_sub(Coord, start = 3, end = 18)
@@ -52,7 +52,8 @@ coord_lon
 CoordToShapefile <- function(Longitude, Latitude, filename) {
   toShapefile = data.frame(Longitude, Latitude)
   coordinates(toShapefile) = ~Lon+Lat
-  proj4string(toShapefile) = CRS("+proj=tmerc +lat_0=0 +lon_0=19 +k=0.9993 +x_0=500000 +y_0=-5300000 +ellps=GRS80 +units=m +no_defs") ## Polish Coordinate Reference System: CS92; EPSG:2180
+  proj4string(toShapefile) = CRS("+proj=tmerc +lat_0=0 +lon_0=19 +k=0.9993 +x_0=500000 +y_0=-5300000 +ellps=GRS80 +units=m +no_defs") 
+  ## Polish Coordinate Reference System: CS92; EPSG:2180
   transformed = spTransform(toShapefile, CRS("+proj=longlat"))
   raster::shapefile(transformed,filename,overwrite = TRUE)
   return(transformed)
