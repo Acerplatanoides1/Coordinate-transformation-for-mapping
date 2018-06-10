@@ -47,7 +47,7 @@ coord_lon = data.frame(Lon = dg2dec(varb=coord$Lon, Dg="°", Min="'", Sec = "''N
 coord_lat = data.frame(Lat = dg2dec(varb=coord$Lat, Dg="°", Min="'", Sec = "''N|E"))
 coord_lon
 
-#Step 3 - Change coorinates to ESRI Shapefile
+#Step 3 - Creation of spatial objects
 
 CoordToShapefile <- function(Longitude, Latitude, filename) {
   library(sf)
