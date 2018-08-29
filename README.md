@@ -1,4 +1,4 @@
-# Coordinate transformation for mapping of 
+# Coordinate transformation for mapping  
 
 ## Introduction
 
